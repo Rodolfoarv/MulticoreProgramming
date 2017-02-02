@@ -31,12 +31,7 @@ public class WebServer {
             while (true) {
                 Socket sock = servSock.accept();
                 Worker w = new Worker(sock);
-                new Thread(new Runnable() {
-                    public void run() {
-                        w.doWork();
-                    }
-                }).start();
-                
+                new Thread(() -> w.doWork()).start();
             }
         } catch (IOException e) {
             e.printStackTrace();
