@@ -1,3 +1,12 @@
+/*-------------------------------------------------------------------
+ * Práctica #1: Calculando Pi con threads en Java
+ * Fecha: 7-Feb-2017
+ * Autor:
+ *          A01169701 Rodolfo A. Ramirez Valenzuela
+ *          A01371743 Luis E. Ballinas Aguilar
+ *-------------------------------------------------------------------*/
+
+
 package mx.itesm.pm.assigment2;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
@@ -54,7 +63,7 @@ public class ForkJoinPi extends RecursiveTask<Double>{
         long timeEnd = System.currentTimeMillis();
        
         System.out.printf("Resultado = %f, tiempo = %.4f",
-         area, (timeEnd - timeStart)/1000.0); //.4 le manda 4 decimales de punto flotante
+         area, (timeEnd - timeStart)/1000.0);
     }
    
 }
