@@ -19,8 +19,9 @@ public class PiStream {
 		
 		double area = 
 				LongStream.range(0, num_rects)
-					.mapToDouble(PiStream::doit)
-						.sum() * width;
+					.parallel()
+						.mapToDouble(PiStream::doit)
+							.sum() * width;
 		
 		Instant end = Instant.now();
 		Duration delta = Duration.between(start, end);
