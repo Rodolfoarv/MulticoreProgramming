@@ -1,3 +1,4 @@
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class StreamExample {
@@ -18,7 +19,22 @@ public class StreamExample {
 //			System.out.println(str);
 //		});
 		
-		System.out.println(st3.count());
+//		System.out.println(st3.count());
+//		st3.map(String::toUpperCase).forEach(System.out::println);
+		
+		
+//		Optional<String> r = st3.max((a,b) -> a.length() - b.length());
+//		if(r.isPresent()){
+//			System.out.println(r.get());
+//		}else{
+//			System.out.println("There is nothing");
+//		}
+		
+//		int r = st3.mapToInt(String::length).sum();
+		int r = st3.reduce(0, (accum, x) -> accum + x.length(),(x,y) -> x+y);
+		System.out.println(r);
+		
+		
 	}
 	
 }
