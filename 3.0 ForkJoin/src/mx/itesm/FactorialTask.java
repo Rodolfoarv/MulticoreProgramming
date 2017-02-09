@@ -32,6 +32,7 @@ public class FactorialTask extends RecursiveTask<BigInteger> {
 			return resultado;
 		}else {
 			int mid = (start + end) >>> 1;
+			System.out.println(mid);
 			FactorialTask t1,t2;
 			t1 = new FactorialTask(start, mid);
 			t2 = new FactorialTask(mid, end);

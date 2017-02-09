@@ -9,6 +9,9 @@
 package mx.itesm.cem.pmultinucleo.http;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -27,11 +30,14 @@ public class WebServer {
         try (
                 ServerSocket servSock = new ServerSocket(PORT_NUMBER)
             ) {
+        	
+        	ExecutorService pool = Executors.newFixedThreadPool(4);
             
             while (true) {
                 Socket sock = servSock.accept();
                 Worker w = new Worker(sock);
-                new Thread(() -> w.doWork()).start();
+                pool.execute(() -> w.doWork());
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
