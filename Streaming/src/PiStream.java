@@ -25,7 +25,7 @@ public class PiStream {
 		
 		Instant end = Instant.now();
 		Duration delta = Duration.between(start, end);
-		System.out.println(delta);
+		System.out.println(delta.toMillis()/ 1000.0);
 		
 		System.out.println(area);
 		
